@@ -11,11 +11,14 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.green,
         body: Center(
           child: Text(
             'Hello World!',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(
+              fontSize: 24,
+              color: Colors.white,
+            ),
           ),
         ),
       ),
