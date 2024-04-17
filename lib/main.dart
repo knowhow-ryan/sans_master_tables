@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'mockup_main_screen.dart';
 
 void main() {
   runApp(const TablesApp());
@@ -10,18 +11,7 @@ class TablesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.white,
-        body: Center(
-          child: Text(
-            'Hello World!',
-            style: TextStyle(
-              fontSize: 24,
-              color: Colors.black,
-            ),
-          ),
-        ),
-      ),
+      home: MockupMainScreen(),
     );
   }
 }
