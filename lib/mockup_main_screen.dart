@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'mock_table_group_panel.dart';
 
 class MockupMainScreen extends StatelessWidget {
   const MockupMainScreen({super.key});
@@ -8,11 +9,15 @@ class MockupMainScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('Sans Master: Tables'),
+        title: const Text('SANS MASTER: TABLES',
+            style: TextStyle(fontStyle: FontStyle.italic)),
         actions: <Widget>[
           //Hamburger menu
-          IconButton(onPressed: () {}, icon: const Icon(Icons.menu))
+          IconButton(onPressed: () {}, icon: const Icon(Icons.menu, size: 30))
         ],
+        surfaceTintColor: Colors.white,
+        shape: const ContinuousRectangleBorder(
+            side: BorderSide(color: Colors.black)),
       ),
       bottomNavigationBar: BottomAppBar(
         //QUICK ROLL BUTTONS
@@ -63,47 +68,7 @@ class MockupMainScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Row(
-            //Table List Title Bar
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Text('ALL TABLES'), //TABLE GROUP TITLE
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.keyboard_arrow_down),
-                  ),
-                ],
-              ),
-              Row(
-                //FILTERING/ORDERING BUTTON
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.keyboard_arrow_down),
-                  ),
-                  const Text('A-Z'),
-                ],
-              ),
-            ],
-          ),
-          ListView.builder(
-            //TABLE LIST
-            shrinkWrap: true,
-            itemCount: 5,
-            itemBuilder: (context, index) {
-              Widget tableTile = const Text('ERROR');
-              if (index < 4) {
-                tableTile = Text('TABLE NAME ${index + 1}');
-              } else {
-                tableTile = const Text('REALLY ANNOYINGLY LONG....');
-              }
-              return tableTile;
-            },
-          ),
+          const MockTableGroupPanel(),
           const Column(
             //TABLE SPINNER
             mainAxisSize: MainAxisSize.min,
