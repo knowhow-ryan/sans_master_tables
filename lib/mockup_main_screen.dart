@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sans_master_tables/mock_outcome_display.dart';
 import 'mock_table_group_panel.dart';
 
 class MockupMainScreen extends StatelessWidget {
@@ -65,71 +66,15 @@ class MockupMainScreen extends StatelessWidget {
         elevation: 5,
         child: const Text("ASK THE\nORACLE"),
       ),
-      body: Column(
+      body: const Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          const MockTableGroupPanel(),
-          const Column(
-            //TABLE SPINNER
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Text('RESULT -1'),
-              Text('RESULT'),
-              Text('RESULT +1'),
-            ],
-          ),
-          Stack(
-            //HISTORY PANEL
-            children: <Widget>[
-              ListView.builder(
-                //HISTORY LIST
-                shrinkWrap: true,
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(historyStrings[index]),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[Text(historyTimeStamps[index])],
-                      ),
-                    ],
-                  );
-                },
-              ),
-              SizedBox(
-                  //HISTORY DRAGGABLE TOP BOUNDARY
-                  height: 25,
-                  child: Container(
-                      color: const Color.fromARGB(158, 158, 158, 158))),
-              Align(
-                //HISTORY DRAGGABLE TOP BOUNDARY ICON
-                alignment: Alignment.topCenter,
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.arrow_downward),
-                ),
-              ),
-            ],
+          MockTableGroupPanel(),
+          MockOutcomeDisplay(
+            initializeExpanded: true,
           ),
         ],
       ),
     );
   }
 }
-
-List historyStrings = [
-  "YES BUT,",
-  "SPICE, TOLERANT, GREASY",
-  "HUMAN, CARPENTER, TIRED",
-  "NO AND,",
-  "10"
-];
-List historyTimeStamps = [
-  "3:04 PM",
-  "3:05 PM",
-  "3:05 PM",
-  "3:06 PM",
-  "3:08 PM"
-];
