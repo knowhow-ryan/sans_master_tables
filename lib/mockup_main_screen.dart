@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sans_master_tables/mock_outcome_display.dart';
 import 'mock_table_group_panel.dart';
+import 'mock_bottom_app_bar.dart';
 
 class MockupMainScreen extends StatelessWidget {
   const MockupMainScreen({super.key});
@@ -20,52 +21,7 @@ class MockupMainScreen extends StatelessWidget {
         shape: const ContinuousRectangleBorder(
             side: BorderSide(color: Colors.black)),
       ),
-      bottomNavigationBar: BottomAppBar(
-        //QUICK ROLL BUTTONS
-        height: 120,
-        color: Colors.white,
-        surfaceTintColor: Colors.white,
-        shape: const CircularNotchedRectangle(),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                TextButton(
-                  onPressed: () {},
-                  child: const Text("QUICK ROLL #1"),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text("QUICK ROLL #3"),
-                ),
-              ],
-            ),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                TextButton(
-                  onPressed: () {},
-                  child: const Text("QUICK ROLL #2"),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text("QUICK ROLL #4"),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Colors.white,
-        elevation: 5,
-        child: const Text("ASK THE\nORACLE"),
-      ),
+      bottomNavigationBar: const MockBottomAppBar(),
       body: const Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
