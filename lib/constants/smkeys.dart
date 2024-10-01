@@ -11,3 +11,4 @@ const String kTABLE_OUTCOMES = 'table_outcomes_key';
 const String kOUTCOME_ID = 'outcome_id_key';
 const String kOUTCOME_RAWTEXT = 'outcome_rawtext_key';
 const String kOUTCOME_WEIGHTS = 'outcome_weights_key';
+const String kOUTCOME_TAGS = "outcome_tags_key";

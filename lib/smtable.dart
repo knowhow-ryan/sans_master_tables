@@ -13,7 +13,9 @@ class SmTable {
     required this.title,
     required this.outcomes,
   }) {
-    _sumWeights();
+    //OutcomeManager().loadOutcomes(outcomes); //
+    
+    totalWeight = _sumWeights();
   }
 
   SmTable.fromMap(tableMap)
@@ -24,11 +26,12 @@ class SmTable {
         );
 
   int _sumWeights() {
-    totalWeight = 0;
-    for (String outcome in outcomes) {
-      totalWeight += OutcomeManager[outcome].weight[id];
+    OutcomeManager oManager = OutcomeManager();
+    int weight = 0;
+    for (String outcomeID in outcomes) {
+      weight += oManager[outcomeID]?.weights[id] ?? 0;
     }
 
-    return totalWeight;
+    return weight;
   }
 }
